@@ -1,0 +1,52 @@
+{
+  "socket_bind": "",
+  "socket_listen_port": 888,
+  "socket_timeout" : 5.0,
+  "mqtt_host": "192.168.1.1",
+  "mqtt_port": 1883,
+  "mqtt_prefix": "homeassistant",
+  "home_assistant_integration": 1,
+  "home_assistant_sensors":
+  {
+    "alarm_arm": { "device_class": "lock", "default_state": "ON", "sensor_type": "binary_sensor" },
+    "alarm_arm_source": { "device_class": "None", "default_state": "nobody", "sensor_type": "sensor" },
+    "alarm_power": { "device_class": "plug", "default_state": "ON", "sensor_type": "binary_sensor" },
+    "alarm_autoprotection": { "device_class": "safety", "default_state": "OFF", "sensor_type": "binary_sensor" },
+    "alarm_autoprotection_source": { "device_class": "None", "default_state": "nothing", "sensor_type": "sensor" },
+    "alarm_alert": { "device_class": "problem", "default_state": "OFF", "sensor_type": "binary_sensor" },
+    "alarm_alert_source": { "device_class": "None", "default_state": "nothing", "sensor_type": "sensor" }
+  },
+  "mapping_events":
+  {
+    "1": { "type": "alarm_alert", "state": "ON", "comment": "alarm alert !", "device_index": 1  },
+    "3": { "type": "alarm_autoprotection", "state": "ON", "comment": "autoprotection !", "device_index": 1  },
+    "4": { "type": "alarm_autoprotection", "state": "OFF", "comment": "autoprotection recovery" },
+    "6": { "type": "alarm_5_wrong_codes", "state": "OFF", "comment": "5 wrong codes" },
+    "19": { "type": "alarm_power", "state": "OFF", "comment": "ac power lost" },
+    "20": { "type": "alarm_power", "state": "ON", "comment": "ac power recovery" },
+    "24": { "type": "alarm_arm", "state": "OFF", "comment": "armed", "mapping_users": 1 },
+    "25": { "type": "alarm_arm", "state": "ON", "comment": "disarmed", "mapping_users": 1 },
+    "27": { "type": "alarm_alert", "state": "OFF", "comment": "intrusion ack" }
+  },
+  "mapping_users":
+  {
+    "1": "Manon",
+    "2": "Mickael",
+    "3": "Allan"
+  },
+  "device_index": {
+    "1": { "name" : "Keypad entrance", "zone": 1 },
+    "2": { "name" : "IR entrance", "zone": 1 },
+    "3": { "name" : "Door entrance", "zone": 1 },
+    "4": { "name" : "Indoor siren", "zone": 1 },
+    "5": { "name" : "IR stage 1", "zone": 3 },
+    "6": { "name" : "Outdoor siren", "zone": 1 },
+    "62": { "name" : "Panel", "zone": 2 }
+  },
+  "zones": {
+    "1": { "name" : "Entrance"},
+    "2": { "name" : "Living room"},
+    "3": { "name" : "Stage 1"},
+    "4": { "name" : "Basement"}
+  }
+}
