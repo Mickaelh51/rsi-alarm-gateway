@@ -1,6 +1,8 @@
 # RSI Videofied tcp / mqtt gateway
 
 This is a simple gateway between RSI Videofied alarm system and MQTT server.
+!! I only tested with the RSI protocol V2 !!
+It's integrated with [Home Assistant](https://github.com/home-assistant/home-assistant) (automatic creation of sensors through MQTT)
 
 <img width="200" alt="portfolio_view" src="image/../images/RSI_alarm_image.png">
 
