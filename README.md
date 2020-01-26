@@ -102,12 +102,19 @@ FYI: I haven't all events yet
 |EVENT,1,2,1|Intrusions detected|1 = Events ID / 2 = Device Index / 1 = Detector Index|
 |EVENT,3,62,0|autoprotection start|3 = Events ID / 62 = Device Index / 0 = ??? |
 |EVENT,4|autoprotection end|4 = Events ID |
+|EVENT,5,1,0|panic buttons|5 = Events ID / 1 = ?? / 0 = ?? |
 |EVENT,6|5 wrong codes|6 = Events ID |
+|EVENT,7,1,3|disarmed with duress code +1|7 = Events ID / 1 = ?? / 3 = ??|
+|EVENT,8,1,3|armed with duress code +2|8 = Events ID / 1 = ?? / 3 = ??|
 |EVENT,19|AC power loss|19 = Events ID |
 |EVENT,20|AC power recovery|20 = Events ID |
 |EVENT,24,1,3|Arm|24 = Events ID / 1 = ?? / 3 = user ID |
 |EVENT,25,0,3|Arm|25 = Events ID / 0 = ?? / 3 = user ID |
 |EVENT,27|After disarm confirmation of intrusion detected|27 = Events ID |
+
+# Panel tested firmwares
+- 07.03.19.03859C
+- 09.01.49.0203809
 
 # Ex of startup logs
 ```
