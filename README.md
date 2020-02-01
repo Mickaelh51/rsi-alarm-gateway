@@ -106,10 +106,13 @@ FYI: I haven't all events yet
 |EVENT,6|5 wrong codes|6 = Events ID |
 |EVENT,7,1,3|disarmed with duress code +1|7 = Events ID / 1 = ?? / 3 = ??|
 |EVENT,8,1,3|armed with duress code +2|8 = Events ID / 1 = ?? / 3 = ??|
+|EVENT,15|Battery low level|15 = Events ID |
+|EVENT,16|After event 15, Battery OK|16 = Events ID |
 |EVENT,19|AC power loss|19 = Events ID |
 |EVENT,20|AC power recovery|20 = Events ID |
 |EVENT,24,1,3|Arm|24 = Events ID / 1 = ?? / 3 = user ID |
 |EVENT,25,0,3|Arm|25 = Events ID / 0 = ?? / 3 = user ID |
+|EVENT,26|cyclic test|26 = Events ID|
 |EVENT,27|After disarm confirmation of intrusion detected|27 = Events ID |
 
 # Panel tested firmwares
