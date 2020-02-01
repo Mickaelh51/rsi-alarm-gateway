@@ -110,8 +110,8 @@ FYI: I haven't all events yet
 |EVENT,16|After event 15, Battery OK|16 = Events ID |
 |EVENT,19|AC power loss|19 = Events ID |
 |EVENT,20|AC power recovery|20 = Events ID |
-|EVENT,24,1,3|Arm|24 = Events ID / 1 = ?? / 3 = user ID |
-|EVENT,25,0,3|Arm|25 = Events ID / 0 = ?? / 3 = user ID |
+|EVENT,24,1,3|Armed|24 = Events ID / 1 = ?? / 3 = user ID |
+|EVENT,25,0,3|Disarmed|25 = Events ID / 0 = ?? / 3 = user ID |
 |EVENT,26|cyclic test|26 = Events ID|
 |EVENT,27|After disarm confirmation of intrusion detected|27 = Events ID |
 
