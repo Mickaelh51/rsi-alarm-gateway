@@ -23,5 +23,5 @@ def mqtt_ha_config(client, cfg):
     client.publish(config_topic, config_data, 0)
     logging.info("Send default state (%s) to MQTT broker for %s" % (v["default_state"], k))
     default_state = ("%s/%s/%s/state" % (cfg["mqtt_prefix"], v["sensor_type"], k))
-    client.publish(default_state, v["default_state"], 0)
+    client.publish(default_state, v["default_state"], 0, True)
 
