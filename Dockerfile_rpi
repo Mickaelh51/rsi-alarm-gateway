@@ -1,4 +1,4 @@
-FROM arm64v8/python:3.8-alpine
+FROM arm32v7/python:3.5-alpine
 RUN apk add --no-cache --update gcc g++ make libffi-dev openssl-dev
 WORKDIR /usr/src/app
 EXPOSE 888
