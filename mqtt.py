@@ -6,6 +6,13 @@ import paho.mqtt.client as mqtt
 def mqtt_start_server(cfg):
   logging.info("Trying MQTT connection to %s:%s" % (cfg["mqtt_host"], cfg["mqtt_port"]))
   client = mqtt.Client()
+  try:
+    if cfg["mqtt_user"] and cfg["mqtt_pwd"]:
+      logging.info("Connection with User and Password")
+      client.username_pw_set(cfg["mqtt_user"], cfg["mqtt_pwd"])
+  except:
+    logging.info("No User and Password configured")
+    
   client.connect(cfg["mqtt_host"], cfg["mqtt_port"])
   client.loop_start()
   logging.info("Connected to MQTT broker")
