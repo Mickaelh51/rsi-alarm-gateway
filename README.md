@@ -22,9 +22,16 @@ docker run --rm -i -t -p 888:888 -e loglevel=DEBUG --name rsigwalarm mickaelh51/
 [https://hub.docker.com/r/mickaelh51/rsimqttgateway](https://hub.docker.com/r/mickaelh51/rsimqttgateway)
 
 ### Pull from docker hub
+#### For linux/amd64
 ```
-docker pull mickaelh51/rsimqttgateway
+docker pull mickaelh51/rsimqttgateway:latest
 ```
+
+#### For Raspberry PI (not tested)
+```
+docker pull mickaelh51/rsimqttgateway:rpi
+```
+
 
 # Alarm configuration
 Please, backup actual configuration before any changes !!
