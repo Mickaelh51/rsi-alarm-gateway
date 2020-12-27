@@ -18,6 +18,9 @@ In debug mode:
 docker run --rm -i -t -p 888:888 -e loglevel=DEBUG --name rsigwalarm mickaelh51/rsimqttgateway:latest
 ```
 
+## Docker image:
+[https://hub.docker.com/r/mickaelh51/rsimqttgateway](https://hub.docker.com/r/mickaelh51/rsimqttgateway)
+
 # Alarm configuration
 Please, backup actual configuration before any changes !!
 ## FR (documentations/WIP2x0_InstallationGuide_FR.pdf)
