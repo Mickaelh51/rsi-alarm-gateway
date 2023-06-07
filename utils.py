@@ -28,25 +28,29 @@ def client_auth(conn):
       logging.info("key: %s" % key)
 
       if (serial and key): 
-        if(conn.send(b"VERSION,2,0\x1a")):
-          #generate Random server challenge
-            challenge = Random.new().read(16).hex().upper()
-            logging.info("Generate new challenge: %s" % challenge)
-            msg = 'AUTH1,' + challenge + '\x1a'
-            if(conn.send(msg.encode())):
-              cipher = AES.new(decode_hex(key)[0])
-              challenge_and_key = conn.recv(1024) # b'AUTH2,E228231BBC986CA9016700499E1C8AE7,B08AE8A308821AC6292811545A15BF59\x1a'
-              alarm_challenge = challenge_and_key.decode().split(',')[2]
-              alarm_challenge = delete_x1a(alarm_challenge)
-              response = cipher.encrypt(decode_hex(alarm_challenge)[0]).hex().upper()
-              logging.info("Key response to alarm: %s" % response )
-              msg = 'AUTH3,' + response + "\x1a"
+        logging.info("Setting preshared key")
+        # panels may require the key to be set
+        msg = 'SETKEY,' + key + '\x1a'
+        if(conn.send(msg.encode())):
+          if(conn.send(b"VERSION,2,0\x1a")):
+            #generate Random server challenge
+              challenge = Random.new().read(16).hex().upper()
+              logging.info("Generate new challenge: %s" % challenge)
+              msg = 'AUTH1,' + challenge + '\x1a'
               if(conn.send(msg.encode())):
-                answer = conn.recv(1024)
-                logging.info("Answer: %s" % answer.decode())
-                if('AUTH_SUCCESS' in answer.decode()):
-                  logging.info("Logging successful !!")
-                  return True
+                cipher = AES.new(decode_hex(key)[0])
+                challenge_and_key = conn.recv(1024) # b'AUTH2,E228231BBC986CA9016700499E1C8AE7,B08AE8A308821AC6292811545A15BF59\x1a'
+                alarm_challenge = challenge_and_key.decode().split(',')[2]
+                alarm_challenge = delete_x1a(alarm_challenge)
+                response = cipher.encrypt(decode_hex(alarm_challenge)[0]).hex().upper()
+                logging.info("Key response to alarm: %s" % response )
+                msg = 'AUTH3,' + response + "\x1a"
+                if(conn.send(msg.encode())):
+                  answer = conn.recv(1024)
+                  logging.info("Answer: %s" % answer.decode())
+                  if('AUTH_SUCCESS' in answer.decode()):
+                    logging.info("Logging successful !!")
+                    return True
   return False
 
 def read_config(config):
