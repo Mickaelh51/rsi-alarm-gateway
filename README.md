@@ -35,6 +35,10 @@ docker pull mickaelh51/rsimqttgateway:rpi
 
 # Alarm configuration
 Please, backup actual configuration before any changes !!
+You can mount config.json as volume with
+```
+./config.json:/usr/src/app/config.json
+```
 ## FR (documentations/WIP2x0_InstallationGuide_FR.pdf)
 - 4. PARAMETRES ETHRENET (P21)
 - 5. CODES ALARME (P22)
